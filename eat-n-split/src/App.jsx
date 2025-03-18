@@ -27,12 +27,20 @@ const initialFriends = [
 ];
 
 function App() {
+  const [showAddFriend, setShowAddFriend] = useState(false);
+
+  function handleShowAddFriend() {
+    setShowAddFriend((showAddFriend) => !showAddFriend);
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
         <FriendsList friends={initialFriends} />
-        <FormAddFriend />
-        <Button>友達追加</Button>
+        {showAddFriend && <FormAddFriend />}
+        <Button onClick={handleShowAddFriend}>
+          {showAddFriend ? "閉じる" : "友達追加"}
+        </Button>
       </div>
       <FormSplitBill />
     </div>
