@@ -1,5 +1,8 @@
 import { useState } from "react";
 import FriendsList from "./FriendsList";
+import FormAddFriend from "./FormAddFriend";
+import Button from "./Button";
+import FormSplitBill from "./FormSplitBill";
 import "./App.css";
 
 const initialFriends = [
@@ -28,7 +31,10 @@ function App() {
     <div className="app">
       <div className="sidebar">
         <FriendsList friends={initialFriends} />
+        <FormAddFriend />
+        <Button>友達追加</Button>
       </div>
+      <FormSplitBill />
     </div>
   );
 }

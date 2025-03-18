@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 function FriendsList({ friends }) {
   return (
@@ -39,7 +40,7 @@ function Friend({ friend }) {
         </p>
       )}
 
-      <button className="button">Select</button>
+      <Button>Select</Button>
     </li>
   );
 }
