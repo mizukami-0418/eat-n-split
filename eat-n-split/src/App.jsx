@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FriendsList from "./FriendsList";
 import "./App.css";
 
 const initialFriends = [
@@ -23,7 +24,13 @@ const initialFriends = [
 ];
 
 function App() {
-  return <h1>hello world</h1>;
+  return (
+    <div className="app">
+      <div className="sidebar">
+        <FriendsList friends={initialFriends} />
+      </div>
+    </div>
+  );
 }
 
 export default App;
