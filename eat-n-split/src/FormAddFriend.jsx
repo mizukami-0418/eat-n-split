@@ -28,7 +28,7 @@ function FormAddFriend({ onAddFriend }) {
 
   return (
     <form className="form-add-friend" onSubmit={handleSubmit}>
-      <label>😃 Friend Name</label>
+      <label>😃 友達の名前</label>
       <input
         type="text"
         value={name}
@@ -42,7 +42,7 @@ function FormAddFriend({ onAddFriend }) {
         onChange={(e) => setImage(e.target.value)}
       />
 
-      <Button>Add</Button>
+      <Button>追加</Button>
     </form>
   );
 }
