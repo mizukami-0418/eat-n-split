@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-function FormSplitBill({ selectedFriend }) {
+function FormSplitBill({ selectedFriend, onSplitBill }) {
   const [bill, setBill] = useState("");
   const [userPayment, setUserPayment] = useState("");
-  const friendpayment = bill ? bill - userPayment : "";
+  const friendPayment = bill ? bill - userPayment : "";
   const [whoPays, setWhoPays] = useState("user");
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!bill || !userPayment) {
+      return;
+    }
+    onSplitBill(whoPays === "user" ? friendPayment : -userPayment);
+  }
+
   return (
-    <form className="form-split-bill">
+    <form className="form-split-bill" onSubmit={handleSubmit}>
       <h2>{selectedFriend.name}さんと割り勘！</h2>
 
       <label>💰 支払い額</label>
@@ -30,7 +39,7 @@ function FormSplitBill({ selectedFriend }) {
       />
 
       <label>👬 {selectedFriend.name}さんの支払い</label>
-      <input type="text" value={friendpayment} disabled />
+      <input type="text" value={friendPayment} disabled />
 
       <label>😳 お支払いは？</label>
       <select value={whoPays} onChange={(e) => setWhoPays(e.target.value)}>

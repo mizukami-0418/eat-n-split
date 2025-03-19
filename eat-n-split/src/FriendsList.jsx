@@ -23,7 +23,7 @@ function Friend({ friend, onSelection, selectedFriend }) {
   return (
     <li className={isSelected ? "selected" : ""}>
       <img src={friend.image} alt={friend.name} />
-      <h3>{friend.name}</h3>
+      <h3>{friend.name}さん</h3>
       {friend.balance < 0 && (
         <p className="red">
           <strong>
